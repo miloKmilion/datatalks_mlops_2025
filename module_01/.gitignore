@@ -1,0 +1,35 @@
+# Virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Editor/IDE settings
+.vscode/
+.idea/
+*.swp
+
+# Test & coverage artifacts
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+pytest_cache/
+
+# Logs and runtime files
+*.log
+*.tmp
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Optional: ignore uv.lock if you want pure pyproject-driven setup
+# Uncomment if not committing the lockfile
+# uv.lock
+data/
+models/

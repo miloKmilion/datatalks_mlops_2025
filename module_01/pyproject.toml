@@ -1,0 +1,15 @@
+[project]
+name = "module-01"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "loguru>=0.7.3",
+    "pandas>=2.2.3",
+    "pyarrow>=20.0.0",
+    "requests>=2.32.3",
+    "ruff>=0.11.9",
+    "scikit-learn>=1.6.1",
+]
