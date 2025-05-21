@@ -1,0 +1,49 @@
+2025-05-21 11:28:44.683 | INFO     | __main__:read_parquet_file:31 - Reading Parquet file: /home/cperez/projects/CamiloPerez/varia/mlops_2025/module_01/data/yellow_tripdata_2023-01.parquet
+2025-05-21 11:28:45.863 | INFO     | __main__:<module>:206 - The shape of the dataframe is: (3066766, 19)
+2025-05-21 11:28:45.960 | INFO     | __main__:<module>:207 - The initial dataframe is:    VendorID tpep_pickup_datetime tpep_dropoff_datetime  passenger_count  trip_distance  RatecodeID store_and_fwd_flag  ...  mta_tax  tip_amount  tolls_amount  improvement_surcharge  total_amount  congestion_surcharge  airport_fee
+0         2  2023-01-01 00:32:10   2023-01-01 00:40:36              1.0           0.97         1.0                  N  ...      0.5        0.00           0.0                    1.0         14.30                   2.5         0.00
+1         2  2023-01-01 00:55:08   2023-01-01 01:01:27              1.0           1.10         1.0                  N  ...      0.5        4.00           0.0                    1.0         16.90                   2.5         0.00
+2         2  2023-01-01 00:25:04   2023-01-01 00:37:49              1.0           2.51         1.0                  N  ...      0.5       15.00           0.0                    1.0         34.90                   2.5         0.00
+3         1  2023-01-01 00:03:48   2023-01-01 00:13:25              0.0           1.90         1.0                  N  ...      0.5        0.00           0.0                    1.0         20.85                   0.0         1.25
+4         2  2023-01-01 00:10:29   2023-01-01 00:21:19              1.0           1.43         1.0                  N  ...      0.5        3.28           0.0                    1.0         19.68                   2.5         0.00
+
+[5 rows x 19 columns]
+2025-05-21 11:28:45.972 | INFO     | __main__:add_trip_duration_and_slice:83 - Columns exsist in the dataframe, converting to datetime if not done ...
+2025-05-21 11:28:46.003 | INFO     | __main__:add_trip_duration_and_slice:87 - Creating the trip duration column in minutes
+2025-05-21 11:28:46.099 | INFO     | __main__:add_trip_duration_and_slice:89 - The standard deviation of the duration column is before slice is: 42.59435124195458
+2025-05-21 11:28:46.217 | INFO     | __main__:percentage_of_outliers:66 - Outlier percentage in 'duration' using iqr: 5.56%
+2025-05-21 11:28:46.218 | INFO     | __main__:add_trip_duration_and_slice:93 - The percent of outliers derived from the column duration is: 5.563352404454725
+2025-05-21 11:28:46.476 | INFO     | __main__:add_trip_duration_and_slice:99 - The standard deviation of the duration column after slice is: 9.939385620151036
+2025-05-21 11:28:46.476 | INFO     | __main__:<module>:217 - The shape of the dataframe is: (3009173, 20)
+2025-05-21 11:28:46.590 | INFO     | __main__:<module>:218 - The Columnd trip duration described is: count    3.009173e+06
+mean     1.420486e+01
+std      9.939386e+00
+min      1.000000e+00
+25%      7.216667e+00
+50%      1.155000e+01
+75%      1.818333e+01
+max      6.000000e+01
+Name: duration, dtype: float64
+2025-05-21 11:28:47.878 | INFO     | __main__:<module>:227 - Reading validation data
+2025-05-21 11:28:47.883 | INFO     | __main__:read_parquet_file:31 - Reading Parquet file: /home/cperez/projects/CamiloPerez/varia/mlops_2025/module_01/data/yellow_tripdata_2023-02.parquet
+2025-05-21 11:28:48.399 | INFO     | __main__:add_trip_duration_and_slice:83 - Columns exsist in the dataframe, converting to datetime if not done ...
+2025-05-21 11:28:48.418 | INFO     | __main__:add_trip_duration_and_slice:87 - Creating the trip duration column in minutes
+2025-05-21 11:28:48.496 | INFO     | __main__:add_trip_duration_and_slice:89 - The standard deviation of the duration column is before slice is: 42.84210176105113
+2025-05-21 11:28:48.605 | INFO     | __main__:percentage_of_outliers:66 - Outlier percentage in 'duration' using iqr: 5.45%
+2025-05-21 11:28:48.606 | INFO     | __main__:add_trip_duration_and_slice:93 - The percent of outliers derived from the column duration is: 5.448745776787905
+2025-05-21 11:28:48.847 | INFO     | __main__:add_trip_duration_and_slice:99 - The standard deviation of the duration column after slice is: 10.064227216640147
+2025-05-21 11:28:49.832 | INFO     | __main__:<module>:237 - Filtered validation dataframe shape: (2855951, 20)
+2025-05-21 11:28:49.944 | INFO     | __main__:preprocess_features_and_target:136 - Starting preprocessing of train and validation data
+2025-05-21 11:28:49.945 | INFO     | __main__:preprocess_features_and_target:146 - Vectorizing features: categorical=['PULocationID', 'DOLocationID'], numerical=['trip_distance']
+2025-05-21 11:28:59.161 | INFO     | __main__:preprocess_features_and_target:151 - X_train shape: (3009173, 516)
+2025-05-21 11:28:59.162 | INFO     | __main__:preprocess_features_and_target:152 - Number of features after one-hot encoding: 516
+2025-05-21 11:29:07.478 | INFO     | __main__:preprocess_features_and_target:157 - X_val shape: (2855951, 516)
+2025-05-21 11:29:07.479 | INFO     | __main__:preprocess_features_and_target:161 - y_train shape: (3009173,), y_val shape: (2855951,)
+2025-05-21 11:29:07.772 | SUCCESS  | __main__:<module>:250 - Feature preprocessing completed successfully
+2025-05-21 11:29:07.773 | INFO     | __main__:train_and_serialize_linear_regression:177 - Training Linear Regression model...
+2025-05-21 11:29:12.404 | INFO     | __main__:train_and_serialize_linear_regression:181 - Predicting on training set...
+2025-05-21 11:29:12.469 | INFO     | __main__:train_and_serialize_linear_regression:184 - Validation RMSE: 7.6584
+2025-05-21 11:29:12.470 | INFO     | __main__:train_and_serialize_linear_regression:186 - Predicting on validation set...
+2025-05-21 11:29:12.514 | INFO     | __main__:train_and_serialize_linear_regression:189 - Validation RMSE: 7.8202
+2025-05-21 11:29:12.518 | INFO     | __main__:train_and_serialize_linear_regression:196 - Serializing model to /home/cperez/projects/CamiloPerez/varia/mlops_2025/module_01/models/lin_reg.bin
+2025-05-21 11:29:12.524 | INFO     | __main__:<module>:254 - Final RMSE: 7.8202
