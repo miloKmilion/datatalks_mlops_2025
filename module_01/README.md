@@ -27,3 +27,15 @@ The initial step is to read and preprocess the data based on the question to ans
 
 > It allows encoding of categorical values in numerical ones. This method represents each category of a single column to be converted into 1 if the vlaues belongs to that category and 0 otherwise.
 
+## Course Overview
+
+When writing code and reviewing after it generates questions. Do we need certain steps?, how can we simplify or improve the code to make it, modular, reusable and more mature.
+
+When creating models sometimes we need to return to old parameters and remember which set of options were the best.
+
+A way to do this can be on notebooks but notebooks are more experimental and declarative. Whereas, printing the log as a experiment tracker, will help to keep a more clear history of the revisions.
+
+* Model registry: Since we save the models into pickle files that can be read after. It is important to keep the performance of such model. Having a model registry will keep track of each of the models. Usually it goes alongside the experiment tracker (MLFlow).
+
+* ML Pipelines: How can we break down a ML pipeline in several steps, 
+
