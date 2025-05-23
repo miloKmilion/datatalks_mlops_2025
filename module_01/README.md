@@ -37,5 +37,40 @@ A way to do this can be on notebooks but notebooks are more experimental and dec
 
 * Model registry: Since we save the models into pickle files that can be read after. It is important to keep the performance of such model. Having a model registry will keep track of each of the models. Usually it goes alongside the experiment tracker (MLFlow).
 
-* ML Pipelines: How can we break down a ML pipeline in several steps, 
+* ML Pipelines: How can we break down a ML pipeline in several steps like:
+  
+  * Load and prepare data
+  * Vectorize the dataframe
+  * Training
+
+* Deployment: The output of a pipeline is a model that we need to take, and put on a ML service to be used in new data or in request.
+
+* Monitoring: Step to verify the performance of a model after a period of time. It is comun that some models lose performance after a while and need to be retrained or updated based on new data.
+
+## MLOps Maturity model
+
+There are 5 levels of maturity in the model.
+
+0. No automation: The way ML is done is simpler, just a jupyter notebook for reserach without bering able to scale.
+1. DevOps, no MLOps: We use some practices to deploy a model as webservice, there are some automatization, tests, CICD, and other practices to release models but isolated of ML processes. They are focused only in the releases.
+   * Releases are automated
+   * Unit and Integration Tests
+   * CI/CD
+   * Ops Metrics
+   * No experiment tracking
+   * No reproducibility
+   * Data scientist separated from the enginering team
+2. Automated training: There is a separate script parametrized that can loads new data and train the model or just a training pipeline. If you have more than 2 models it is suggested to go to this level.
+   * Training pipeline
+   * Experiment tracking
+   * Model registry
+   * Low friction deploymenyt
+   * DS team with Engineering.
+3. Automated deployment: No human involvement in the deplyment process.
+   * Easy to deploy model, can be done by API calls to an ML platform.
+   * A/B testing, To evaluate which version of a model performs better.
+   * Model monitoring
+4. Full MLOps Automation: This includes all the previous levels combined.
+
+The level at which your development sets your level depends of the model and the goal. If is a POC then level 0 will suffice and then scales to a new level.
 
